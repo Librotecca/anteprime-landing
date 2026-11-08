@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jazzoni Auto – Concessionaria auto</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F5F5F2;--ink:#161616;--muted:#4A4A4A;--accent:#2A5BD7;--accent-ink:#FFFFFF;--soft:#E6E8EE;--card:#FFFFFF;--head:'Archivo', sans-serif;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.preview{background:var(--ink);color:var(--bg);font-size:12.5px;text-align:center;padding:7px 12px;letter-spacing:.02em}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid color-mix(in srgb,var(--ink) 10%,transparent)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px}
+.brand{font-family:var(--head);font-weight:800;font-size:20px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;font-size:16px;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 18px -8px var(--accent)}
+.btn:hover{transform:translateY(-1px)}.btn.sm{min-height:40px;padding:0 16px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border:1.5px solid color-mix(in srgb,var(--ink) 25%,transparent)}
+.hero{padding:44px 0 56px}.hero .wrap{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.05fr .95fr}.hero{padding:72px 0 84px}}
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1,h2,h3{font-family:var(--head);font-weight:800;line-height:1.08;margin:0}
+h1{font-size:clamp(38px,6.4vw,64px);letter-spacing:-.01em}
+h2{font-size:clamp(30px,4.4vw,44px);margin-bottom:28px}
+h3{font-size:21px;line-height:1.2;margin-bottom:8px}
+.lead{font-size:19px;color:var(--muted);margin:20px 0 28px;max-width:560px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:28px 0 0}
+.chips li{background:var(--soft);padding:8px 14px;border-radius:999px;font-size:14px;font-weight:500}
+.proof{margin-top:18px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.proof:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero-media{aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,var(--soft),color-mix(in srgb,var(--accent) 30%,var(--soft)));box-shadow:0 30px 60px -30px color-mix(in srgb,var(--ink) 45%,transparent)}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+section{padding:64px 0}section.alt{background:var(--card)}
+.grid3{display:grid;gap:18px}@media(min-width:800px){.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.card{background:var(--card);border:1px solid color-mix(in srgb,var(--ink) 8%,transparent);border-radius:22px;padding:26px}
+section.alt .card{background:var(--bg)}
+.card p,.services p,.steps p{margin:0;color:var(--muted)}
+.svc{display:grid;gap:32px}@media(min-width:900px){.svc{grid-template-columns:1fr 1fr;align-items:start}}
+.services{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.services li{padding:20px 22px;border-radius:18px;background:var(--bg);border-left:0;border:1px solid color-mix(in srgb,var(--ink) 8%,transparent)}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.gallery figure{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:1;background:var(--soft)}
+.gallery figure:first-child{grid-column:span 2;aspect-ratio:16/10}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:16px}@media(min-width:800px){.steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.steps li{display:flex;gap:16px;align-items:flex-start;background:var(--card);border-radius:20px;padding:24px;border:1px solid color-mix(in srgb,var(--ink) 8%,transparent)}
+.n{flex:none;width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700}
+details{background:var(--card);border-radius:16px;padding:18px 22px;border:1px solid color-mix(in srgb,var(--ink) 8%,transparent)}
+details+details{margin-top:12px}summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}summary:after{content:"+";color:var(--accent);font-size:24px;line-height:1}details[open] summary:after{content:"–"}
+details p{margin:12px 0 0;color:var(--muted)}
+.final{background:var(--ink);color:var(--bg);text-align:center;border-radius:32px;padding:56px 24px;margin:0 20px}
+.final p{opacity:.85;max-width:560px;margin:16px auto 28px}
+.final .btn{background:var(--accent);color:var(--accent-ink)}
+footer{padding:48px 0 120px}footer .info{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+footer p{margin:0;color:var(--muted);font-size:15px}footer strong{color:var(--ink)}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:flex}.sticky .btn{flex:1;min-height:54px;font-size:17px}
+@media(min-width:900px){.sticky{display:none}footer{padding-bottom:56px}}
+</style>
+</head>
+<body>
+<div class="preview">Anteprima gratuita preparata da Roberto per Jazzoni Auto</div>
+<header class="top"><div class="wrap"><div class="brand">Jazzoni Auto</div><a class="btn sm" href="tel:+390688808501">Chiama la concessionaria</a></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div>
+<span class="eyebrow">Concessionaria auto · Roma, Via Appia Nuova</span>
+<h1>Oltre 400 auto usate e km0 a Roma</h1>
+<p class="lead">Concessionaria romana da oltre 60 anni, con più di 400 auto tra usato e km0. Opzioni di finanziamento anche con anticipo contenuto.</p>
+<div class="actions"><a class="btn" href="tel:+390688808501">Chiama la concessionaria</a><a class="btn ghost" href="#servizi">Scopri di più</a></div>
+<ul class="chips"><li>Oltre 60 anni a Roma</li><li>400+ auto disponibili</li><li>Finanziamenti</li></ul>
+<div class="proof">Seguiti da 15.369 persone su Instagram</div>
+</div>
+<div class="hero-media"><img src="https://scontent-cdg4-3.cdninstagram.com/v/t51.82787-15/881396702_18289064152289431_3488054258753454037_n.jpg?stp=dst-jpg_e15_tt6&amp;_nc_cat=111&amp;ig_cache_key=NDAyMDc1MzE1Mjg0ODA1MzAzNDE4Mjg5MDY0MTQ5Mjg5NDMx.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEwODAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&amp;_nc_ohc=BA1dBxxyqroQ7kNvwEKcbaq&amp;_nc_oc=AdrhYFKwUoYiZ2o4-RgJDOopGV7-rmIGe4wMyW7w-eVVy1DBu1sNnzfM8koO9VeckJA&amp;_nc_zt=23&amp;_nc_ht=scontent-cdg4-3.cdninstagram.com&amp;_nc_gid=Ayf5LxLO7uDt3yh5TiiXNQ&amp;_nc_ss=70a8c&amp;oh=00_AQSpW4XPS7_BvVj2C8fOu4y69ahNmNmbcCUnsddoAA1kZA&amp;oe=6AF68227" alt="Jazzoni Auto" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+</div></section>
+<section class="alt"><div class="wrap"><h2>Perché scegliere Jazzoni Auto</h2><div class="grid3"><article class="card"><h3>Ampia scelta</h3><p>Più di 400 auto tra usato e km0, visibili direttamente in sede.</p></article><article class="card"><h3>Nessuna maxi rata</h3><p>Proposte di finanziamento con rate e anticipo indicati per ogni vettura, secondo le condizioni riportate.</p></article><article class="card"><h3>Esperienza sul territorio</h3><p>Presenti a Roma da oltre 60 anni, in zona Capannelle.</p></article></div></div></section>
+<section id="servizi"><div class="wrap svc"><div><h2>Cosa trovi da noi</h2><ul class="services"><li><h3>Auto usate</h3><p>Selezione di vetture usate di diverse marche e segmenti.</p></li><li><h3>Km0 e aziendali</h3><p>Modelli come Fiat 500 Hybrid e Opel Corsa con prezzo promo.</p></li><li><h3>SUV</h3><p>Offerte dedicate ai SUV, con prezzi promozionali pubblicati sul profilo.</p></li><li><h3>Finanziamento</h3><p>Proposte con rate e anticipo definiti caso per caso.</p></li></ul></div><div class="gallery"><figure><img src="https://scontent-cdg6-1.cdninstagram.com/v/t51.82787-15/870972619_18288753220289431_2033005038542601055_n.jpg?stp=dst-jpg_e15_tt6&amp;_nc_cat=103&amp;ig_cache_key=NDAxOTMwMjc0NDY3NDA1NzE1NjE4Mjg4NzUzMjE0Mjg5NDMx.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEwODAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&amp;_nc_ohc=Gb1gFhDy2AcQ7kNvwEdlKWu&amp;_nc_oc=AdpLRvzhWGHMT1jRfVYVAFQ2K7_ioys2LBdrTLx9ZK1rDTDBqwoBAFHr2WMDmSPsVvM&amp;_nc_zt=23&amp;_nc_ht=scontent-cdg6-1.cdninstagram.com&amp;_nc_gid=Ayf5LxLO7uDt3yh5TiiXNQ&amp;_nc_ss=70a8c&amp;oh=00_AQT5Acnxsc2Bx_tlppixv2ZMLgD5I3E9QNiOu68HTI-JEg&amp;oe=6AF698F1" alt="Foto di Jazzoni Auto" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()"></figure><figure><img src="https://scontent-cdg6-1.cdninstagram.com/v/t51.82787-15/811501538_17963135103189999_2500761638648004694_n.heic?stp=dst-jpg_e35_tt6&amp;_nc_cat=105&amp;ig_cache_key=Mzk4NjU2NDIyNzU4NzQ0NDA1OQ%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=7beGiyfEDQIQ7kNvwFZYRHu&amp;_nc_oc=AdpE5Piu9-DlqihctsrixG-6a_rv2g-DgS7Y7yBIY8JjYpLavQOH48Gw9GuWC8J8Ido&amp;_nc_zt=23&amp;_nc_ht=scontent-cdg6-1.cdninstagram.com&amp;_nc_gid=Ayf5LxLO7uDt3yh5TiiXNQ&amp;_nc_ss=70a8c&amp;oh=00_AQT19qshdu-p0skWejc6HKR813kz4ENXweRhDgz4zt6DWQ&amp;oe=6AF67706" alt="Foto di Jazzoni Auto" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()"></figure></div></div></section>
+<section class="alt"><div class="wrap"><h2>Come funziona</h2><ol class="steps"><li><span class="n">1</span><div><h3>Scegli l&#x27;auto</h3><p>Guarda le offerte sul profilo o chiama.</p></div></li><li><span class="n">2</span><div><h3>Parla con noi</h3><p>Ti indichiamo disponibilità e opzioni di finanziamento.</p></div></li><li><span class="n">3</span><div><h3>Vieni in sede</h3><p>Passa in Via Appia Nuova 1160 a vedere l&#x27;auto.</p></div></li></ol></div></section>
+<section><div class="wrap" style="max-width:820px"><h2>Domande frequenti</h2><details><summary>Quante auto avete?</summary><p>Più di 400 auto tra usato e km0, secondo quanto indicato dalla concessionaria.</p></details><details><summary>Offrite finanziamenti?</summary><p>Sì, le offerte includono finanziamenti con anticipo e rate, soggetti alle condizioni indicate.</p></details><details><summary>Dove vi trovate?</summary><p>In Via Appia Nuova 1160, a Roma, zona Capannelle.</p></details></div></section>
+<div class="final"><h2 style="margin:0">Vieni a trovarci</h2><p>Chiama o passa in sede: la tua prossima auto potrebbe essere già qui.</p><a class="btn" href="tel:+390688808501">Chiama la concessionaria</a></div>
+</main>
+<footer><div class="wrap"><div class="info"><p><strong>Dove</strong><br>Via Appia Nuova 1160, Roma</p><p><strong>Telefono</strong><br>06 8880 8501</p><p><strong>Instagram</strong><br><a href="https://instagram.com/jazzoni_auto">@jazzoni_auto</a></p></div></div></footer>
+<div class="sticky"><a class="btn" href="tel:+390688808501">Chiama la concessionaria</a></div>
+</body>
+</html>
