@@ -1,7 +1,7 @@
 // Scarica le immagini Instagram referenziate nelle pagine e le serve in locale (/img/...)
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
 const OUT='out'; fs.mkdirSync(path.join(OUT,'img'),{recursive:true});
-const re=/https:\/\/[^"'\s)]*(?:cdninstagram\.com|fbcdn\.net)[^"'\s)]*/g;
+const re=/https:\/\/[^"'\s)]*(?:cdninstagram\.com|fbcdn\.net|images\.unsplash\.com)[^"'\s)]*/g;
 const cache=new Map(); let ok=0, ko=0;
 async function get(raw){
   if(cache.has(raw)) return cache.get(raw);
