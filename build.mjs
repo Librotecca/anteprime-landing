@@ -9,16 +9,19 @@ async function get(raw){
   const name=crypto.createHash('sha1').update(url.split('?')[0]).digest('hex').slice(0,16)+'.jpg';
   let res=null;
   for(let i=0;i<3&&!res;i++){
-    try{const r=await fetch(url,{headers:{'user-agent':'Mozilla/5.0'}});
+    try{const r=await fetch(url,{headers:{'user-agent':'Mozilla/5.0'},signal:AbortSignal.timeout(15000)});
       if(r.ok){fs.writeFileSync(path.join(OUT,'img',name),Buffer.from(await r.arrayBuffer()));res='/img/'+name;}}
     catch(e){}
   }
   res?ok++:ko++; cache.set(raw,res); return res;
 }
-for(const d of fs.readdirSync(OUT)){
-  const f=path.join(OUT,d,'index.html'); if(!fs.existsSync(f)) continue;
+const pages=fs.readdirSync(OUT).map(d=>path.join(OUT,d,'index.html')).filter(f=>fs.existsSync(f));
+let done=0;
+async function page(f){
   let h=fs.readFileSync(f,'utf8'); const urls=[...new Set(h.match(re)||[])];
-  for(const u of urls){const l=await get(u); if(l) h=h.split(u).join(l);}
-  fs.writeFileSync(f,h);
+  const links=await Promise.all(urls.map(get));
+  urls.forEach((u,i)=>{ if(links[i]) h=h.split(u).join(links[i]); });
+  fs.writeFileSync(f,h); console.log('pagina',++done,'/',pages.length,f);
 }
+for(let i=0;i<pages.length;i+=6) await Promise.all(pages.slice(i,i+6).map(page));
 console.log('immagini scaricate',ok,'fallite',ko);
