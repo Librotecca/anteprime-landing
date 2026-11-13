@@ -73,6 +73,22 @@ footer p{margin:0;color:var(--muted);font-size:15px}footer strong{color:var(--in
 .check{list-style:none;padding:0;margin:0;display:grid;gap:12px}
 .check li{background:var(--card);border-radius:16px;padding:16px 20px;border:1px solid color-mix(in srgb,var(--ink) 8%,transparent)}
 .check li:before{content:"✓";color:var(--accent);font-weight:700;margin-right:10px}
+
+.quiz{max-width:760px;margin:0 auto;background:var(--card);border-radius:28px;padding:32px 26px;border:1px solid color-mix(in srgb,var(--ink) 8%,transparent);box-shadow:0 24px 50px -34px color-mix(in srgb,var(--ink) 50%,transparent)}
+.quiz .qtag{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.quiz h2{margin:8px 0 6px;font-size:clamp(26px,3.6vw,36px)}
+.quiz .sub{color:var(--muted);margin:0 0 22px}
+.qbar{height:6px;border-radius:9px;background:var(--soft);margin-bottom:22px;overflow:hidden}.qbar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.qq{font-weight:600;font-size:19px;margin-bottom:14px}
+.opts{display:grid;gap:10px}@media(min-width:640px){.opts{grid-template-columns:1fr 1fr}}
+.opt{text-align:left;font:inherit;font-size:16px;padding:16px 18px;border-radius:16px;border:1.5px solid color-mix(in srgb,var(--ink) 14%,transparent);background:var(--bg);cursor:pointer;transition:border-color .15s,transform .15s}
+.opt:hover{border-color:var(--accent);transform:translateY(-1px)}
+.res{display:none}.res.on{display:block}
+.res .rname{font-family:var(--head);font-size:30px;font-weight:700;margin:6px 0 10px}
+.res p{color:var(--muted);margin:0 0 18px}
+.res .note{font-size:13.5px;margin-top:16px}
+.skip{display:inline-block;margin-top:18px;font-size:14.5px;color:var(--muted)}
+.tcard.hl{outline:2.5px solid var(--accent);outline-offset:3px}
 </style>
 </head>
 <body>
@@ -84,34 +100,59 @@ footer p{margin:0;color:var(--muted);font-size:15px}footer strong{color:var(--in
 <span class="eyebrow">Medico estetico · Padova, Parma, Cesenatico, Gela</span>
 <h1>Tutte le risposte, prima di scriverci</h1>
 <p class="lead">Trattamenti, tempi, risultati e costi: qui trovi le informazioni che servono per arrivare alla consulenza con le idee chiare. Quando sei pronto, scrivi direttamente alla Segreteria.</p>
-<div class="actions"><a class="btn" href="#trattamenti">Scopri i trattamenti</a><a class="btn ghost" href="https://wa.me/393201982615">Scrivi alla Segreteria</a></div>
+<div class="actions"><a class="btn" href="#quiz">Trova il trattamento per te</a><a class="btn ghost" href="https://wa.me/393201982615">Scrivi alla Segreteria</a></div>
 <ul class="chips"><li>Valorizzo il tuo aspetto in modo discreto</li><li>4 sedi</li><li>Solo WhatsApp</li></ul>
 <div class="proof">Seguito da oltre 20.000 persone su Instagram</div>
 </div>
 <div class="hero-media"><img src="https://framerusercontent.com/images/G4TFloagFXdo97Hk2oT5yZ5ak.png?width=1024&height=1536" alt="Dott. Samuel Giaquinta"></div>
 </div></section>
 
+
+<section id="quiz"><div class="wrap">
+<div class="quiz">
+<span class="qtag">Facoltativo · 30 secondi</span>
+<h2>Quale trattamento fa per te?</h2>
+<p class="sub">Due domande per orientarti prima di scriverci.</p>
+<div class="qbar"><i id="qb"></i></div>
+<div id="q1"><div class="qq">Cosa vorresti migliorare?</div><div class="opts">
+<button class="opt" data-a="vol">Volumi e contorni (labbra, zigomi, profilo)</button>
+<button class="opt" data-a="pelle">Pelle spenta, poco idratata</button>
+<button class="opt" data-a="rughe">Rughe d'espressione (fronte, occhi)</button>
+<button class="opt" data-a="tono">Tono e compattezza del viso</button>
+</div></div>
+<div id="q2" style="display:none"><div class="qq">Che tipo di risultato preferisci?</div><div class="opts">
+<button class="opt" data-b="subito">Visibile da subito</button>
+<button class="opt" data-b="graduale">Graduale e naturale, che duri a lungo</button>
+</div></div>
+<div class="res" id="res"><span class="qtag">Il trattamento da approfondire</span>
+<div class="rname" id="rn"></div><p id="rt"></p>
+<div class="actions"><a class="btn" href="https://wa.me/393201982615">Scrivi alla Segreteria</a><a class="btn ghost" id="rl" href="#trattamenti">Leggi la scheda</a></div>
+<p class="note">È solo un orientamento: il trattamento giusto lo sceglie il medico durante la prima visita.</p>
+<a class="skip" href="#" id="again">Rifai il test</a></div>
+<a class="skip" href="https://wa.me/393201982615" id="direct">Sai già cosa ti serve? Scrivi subito alla Segreteria →</a>
+</div>
+</div></section>
 <section class="alt" id="trattamenti"><div class="wrap">
 <h2>I trattamenti, spiegati semplice</h2>
 <p class="intro">Per ogni trattamento: cos'è, cosa aspettarsi e quanto dura l'effetto. Il piano preciso lo definisce il medico dopo la visita.</p>
 <div class="tgrid">
-<article class="tcard"><h3>Filler</h3>
+<article class="tcard" id="t-fill"><h3>Filler</h3>
 <dl><dt>Cos'è</dt><dd>Trattamento iniettivo per ridefinire i volumi, armonizzare alcune aree del viso e migliorarne la freschezza, con un risultato naturale.</dd>
 <dt>Quanto dura</dt><dd>Il filler all'acido ialuronico viene riassorbito gradualmente: in genere tra 6 e 18 mesi, a seconda della zona, del prodotto e della persona.</dd>
 <dt>Costo</dt><dd><span class="todo">fascia di prezzo o "indicato in consulenza"</span></dd></dl></article>
-<article class="tcard"><h3>Idrossiapatite di calcio</h3>
+<article class="tcard" id="t-idro"><h3>Idrossiapatite di calcio</h3>
 <dl><dt>Cos'è</dt><dd>Filler biocompatibile e riassorbibile: ridefinisce i volumi, stimola il collagene e migliora tono ed elasticità.</dd>
 <dt>Quanto dura</dt><dd>I risultati possono durare fino a due anni.</dd>
 <dt>Costo</dt><dd><span class="todo">fascia di prezzo o "indicato in consulenza"</span></dd></dl></article>
-<article class="tcard"><h3>Acido polilattico</h3>
+<article class="tcard" id="t-poli"><h3>Acido polilattico</h3>
 <dl><dt>Cos'è</dt><dd>Biostimolante biodegradabile che stimola la produzione naturale di collagene. Non riempie subito: migliora progressivamente tonicità e compattezza.</dd>
 <dt>Quanto dura</dt><dd>I risultati compaiono nel corso di alcune settimane e possono durare fino a circa 24 mesi.</dd>
 <dt>Costo</dt><dd><span class="todo">fascia di prezzo o "indicato in consulenza"</span></dd></dl></article>
-<article class="tcard"><h3>Biorivitalizzazione</h3>
+<article class="tcard" id="t-bio"><h3>Biorivitalizzazione</h3>
 <dl><dt>Cos'è</dt><dd>Migliora qualità, idratazione, luminosità e compattezza della pelle, senza modificare i volumi del viso.</dd>
 <dt>Quanto dura</dt><dd><span class="todo">numero di sedute consigliate</span></dd>
 <dt>Costo</dt><dd><span class="todo">fascia di prezzo o "indicato in consulenza"</span></dd></dl></article>
-<article class="tcard"><h3>Botox</h3>
+<article class="tcard" id="t-botox"><h3>Botox</h3>
 <dl><dt>Cos'è</dt><dd>Attenua alcune rughe dinamiche e distende l'espressione in modo controllato, dopo una valutazione personalizzata.</dd>
 <dt>Quanto dura</dt><dd><span class="todo">durata indicativa dell'effetto</span></dd>
 <dt>Costo</dt><dd><span class="todo">fascia di prezzo o "indicato in consulenza"</span></dd></dl></article>
@@ -154,5 +195,25 @@ footer p{margin:0;color:var(--muted);font-size:15px}footer strong{color:var(--in
 </main>
 <footer><div class="wrap"><div class="info"><p><strong>WhatsApp</strong><br>320-1982615 (solo messaggi)</p><p><strong>Sedi</strong><br>Padova · Parma · Cesenatico · Gela</p><p><strong>Instagram</strong><br><a href="https://instagram.com/dr.samuelgiaquinta">@dr.samuelgiaquinta</a></p></div></div></footer>
 <div class="sticky"><a class="btn" href="https://wa.me/393201982615">Scrivi alla Segreteria</a></div>
+<script>
+(function(){
+var a=null,R={
+fill:["Filler","Ridefinisce volumi e armonizza alcune aree del viso con un risultato naturale. L'effetto dura in genere tra 6 e 18 mesi.","t-fill"],
+idro:["Idrossiapatite di calcio","Ridefinisce i volumi e stimola il collagene, migliorando tono ed elasticità. I risultati possono durare fino a due anni.","t-idro"],
+poli:["Acido polilattico","Stimola il collagene e migliora progressivamente tonicità e compattezza. I risultati arrivano in alcune settimane e possono durare fino a circa 24 mesi.","t-poli"],
+bio:["Biorivitalizzazione","Migliora qualità, idratazione, luminosità e compattezza della pelle, senza modificare i volumi del viso.","t-bio"],
+botox:["Botox","Attenua alcune rughe dinamiche e distende l'espressione in modo controllato, dopo una valutazione personalizzata.","t-botox"]};
+function $(i){return document.getElementById(i)}
+function show(k){var r=R[k];$('q1').style.display='none';$('q2').style.display='none';$('direct').style.display='none';
+$('rn').textContent=r[0];$('rt').textContent=r[1];$('rl').href='#'+r[2];$('res').classList.add('on');$('qb').style.width='100%';
+document.querySelectorAll('.tcard').forEach(function(c){c.classList.toggle('hl',c.id===r[2])});}
+document.querySelectorAll('[data-a]').forEach(function(b){b.onclick=function(){a=b.dataset.a;
+if(a==='pelle')return show('bio');if(a==='rughe')return show('botox');
+$('q1').style.display='none';$('q2').style.display='block';$('qb').style.width='50%';}});
+document.querySelectorAll('[data-b]').forEach(function(b){b.onclick=function(){var s=b.dataset.b;
+show(a==='vol'?(s==='subito'?'fill':'idro'):(s==='subito'?'idro':'poli'));}});
+$('again').onclick=function(e){e.preventDefault();$('res').classList.remove('on');$('q1').style.display='block';$('direct').style.display='inline-block';$('qb').style.width='0';};
+})();
+</script>
 </body>
 </html>
